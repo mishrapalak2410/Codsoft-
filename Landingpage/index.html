@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centered Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #1a1a1a, #000);
+    color: #fff;
+}
+
+/* NAVBAR */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8%;
+}
+
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #aaa;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* HERO GRID */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 350px 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 80px 8%;
+}
+
+/* LEFT TEXT */
+.left h1 {
+    font-size: 64px;
+    font-weight: 800;
+}
+
+.left p {
+    margin-top: 10px;
+    color: #aaa;
+}
+
+/* CENTER IMAGE */
+.center {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.center img {
+    width: 320px;
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+/* GLOW EFFECT */
+.center::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #00ff9d, transparent 70%);
+    filter: blur(70px);
+    z-index: 1;
+}
+
+/* RIGHT TEXT */
+.right p {
+    color: #bbb;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 22px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.primary {
+    background: #00ff9d;
+    color: #000;
+}
+
+.primary:hover {
+    box-shadow: 0 0 20px #00ff9d;
+}
+
+.secondary {
+    background: transparent;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+.secondary:hover {
+    border-color: #fff;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .left h1 {
+        font-size: 42px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>BMW</h2>
+    <nav>
+        <a href="#">Case Studies</a>
+        <a href="#">About</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <!-- LEFT -->
+    <div class="left">
+        <h1>PALAK</h1>
+        <p>AI Automation<br>Website & Landing Page<br>SaaS Prototype</p>
+    </div>
+
+    <!-- CENTER IMAGE -->
+    <div class="center">
+        <img src="yourphoto.jpg" alt="profile">
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+    <H2> I build systems that work while you don't.</H2>
+            <P>Your tech stack should run without you.
+            Let's scale your workflow efficiently.
+        </p>
+
+        <div class="buttons">
+            <button class="btn primary">Book a Call</button>
+            <button class="btn secondary">View Portfolio</button>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>
