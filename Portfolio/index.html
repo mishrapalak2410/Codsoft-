@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Portfolio</title>
+
+<style>
+
+/* ================= THEME VARIABLES ================= */
+:root{
+    --text:#fff;
+    --accent:#00ffff;
+}
+
+/* THEMES */
+.theme-dark{ --accent:#00ffff; }
+.theme-blue{ --accent:#3b82f6; }
+.theme-green{ --accent:#10b981; }
+.theme-purple{ --accent:#8b5cf6; }
+
+/* ================= BACKGROUND ================= */
+body{
+    margin:0;
+    font-family:Arial;
+    color:var(--text);
+    background: linear-gradient(-45deg, #1e3a8a, #4c1d95, #065f46, #111);
+    background-size:400% 400%;
+    animation:gradientBG 10s ease infinite;
+}
+
+/* GRADIENT ANIMATION */
+@keyframes gradientBG{
+    0%{ background-position:0% 50%; }
+    50%{ background-position:100% 50%; }
+    100%{ background-position:0% 50%; }
+}
+
+/* ================= GLASS UI ================= */
+nav, section, footer{
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    margin:10px;
+    border-radius:10px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+nav a:hover{
+    color:var(--accent);
+}
+
+/* BUTTON */
+.btn{
+    background:var(--accent);
+    border:none;
+    padding:8px 15px;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+/* SECTIONS */
+section{
+    padding:80px 20px;
+    text-align:center;
+}
+
+/* HOME */
+#home{
+    color:white;
+}
+
+/* ABOUT */
+#about img{
+    width:150px;
+    border-radius:50%;
+    margin-top:20px;
+}
+
+/* SKILLS */
+.skills{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.skill{
+    padding:10px 15px;
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:5px;
+}
+
+/* PROJECTS */
+.projects{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+
+.card{
+    width:220px;
+    padding:15px;
+    border-radius:10px;
+    background: rgba(255,255,255,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* RESUME */
+.resume a{
+    background:var(--accent);
+    color:white;
+    padding:10px 20px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:15px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav ul{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>Palak Mishra</h2>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="btn" onclick="changeTheme()">Theme</button>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+    <h1 id="typing"></h1>
+    <p>Frontend Developer | Web Designer</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Me</h2>
+    <img src="yourphoto.jpg" alt="Profile">
+    <p>
+        I am a passionate web developer skilled in HTML, CSS, and JavaScript.
+        I create responsive and user-friendly websites.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Responsive Design</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="projects">
+        <div class="card">
+            <h3>Portfolio</h3>
+            <p>Personal portfolio website</p>
+        </div>
+
+        <div class="card">
+            <h3>Weather App</h3>
+            <p>API-based weather application</p>
+        </div>
+
+        <div class="card">
+            <h3>Calculator</h3>
+            <p>Calculator webpage</p>
+        </div>
+    </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+    <h2>Resume</h2>
+    <div class="resume">
+        <a href="resume.pdf" download>Download Resume</a>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: abc@example.com</p>
+    <p>Phone: +91XXXXXXXXXX</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Palak  Mishra | All Rights Reserved</p>
+</footer>
+
+<script>
+
+/* ================= THEME SWITCH ================= */
+const themes = ["theme-dark","theme-blue","theme-green","theme-purple"];
+let index = 0;
+
+function changeTheme(){
+    document.body.classList.remove(...themes);
+    document.body.classList.add(themes[index]);
+    index = (index + 1) % themes.length;
+}
+
+/* ================= TYPING EFFECT ================= */
+const text = "Hello, I'm a Frontend Developer";
+let i = 0;
+
+function typing(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing,50);
+    }
+}
+typing();
+
+</script>
+
+</body>
+</html>
